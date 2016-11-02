@@ -18,7 +18,7 @@
 		<h3 id="fast-facts-header">Fast Facts</h3>
 		<div class="fast-facts">
 		
-		<p><b>Size</b>: ${park.acreage} acres</p>
+		<p><b>Size</b>: <span id="sizeTest">${park.acreage}</span> acres</p>
 		<p><b>Elevation</b>: ${park.elevationInFeet} feet</p>
 		<p><b>Combined trail length</b>: ${park.milesOfTrail} miles</p>
 		<p><b>Number of campsites</b>: ${park.numberOfCampsites}</p>
@@ -30,6 +30,22 @@
 		<!--if statement, if park is free, say free  -->
 		<p><b>Entry fee</b>: $${park.entryFee}</p>
 		</div>
+		</div>
+		<c:url var="parkWeatherHref" value="/parkWeather">
+		<c:param name="parkCode" value="${park.code}"/>
+		</c:url>
+<%-- 		<p><a href="${parkWeatherHref}">View five-day forecast</a></p>
+ --%>	<form>
+ 		<input type="radio" name="tempFormat" value="Fahrenheit">Fahrenheit<br>
+ 		<input type="radio" name="tempFormat" value="Celsius">Celsius<br>
+ 		
+ 		
+ 
+ 
+ </form> 	
 		
 		
-	</div>
+		
+		
+		
+		

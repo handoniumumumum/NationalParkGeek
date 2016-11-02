@@ -12,7 +12,7 @@
 
 	<div id="park-list-item">
 	
-			<a href="${parkDetailHref}">
+			<a id = "${park.name}" href="${parkDetailHref}">
 			<img src = "img/parks/${park.code}.jpg"/>
 			</a>
 		
