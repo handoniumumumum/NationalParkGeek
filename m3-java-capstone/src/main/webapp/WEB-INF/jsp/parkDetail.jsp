@@ -35,9 +35,22 @@
 		<c:param name="parkCode" value="${park.code}"/>
 		</c:url>
 <%-- 		<p><a href="${parkWeatherHref}">View five-day forecast</a></p>
- --%>	<form>
- 		<input type="radio" name="tempFormat" value="Fahrenheit">Fahrenheit<br>
+ --%>	
+ 		<c:url value="/parkWeather" var ="formAction"/>
+		<form method="GET" action="${formAction}">
+ 		<c:if test="${tempFormat == 'Fahrenheit'}">
+ 		<input type="radio" name="tempFormat" value="Fahrenheit" checked>Fahrenheit<br>
  		<input type="radio" name="tempFormat" value="Celsius">Celsius<br>
+ 		</c:if>
+ 		
+ 		<c:if test="${tempFormat == 'Celsius'}">
+ 		<input type="radio" name="tempFormat" value="Fahrenheit">Fahrenheit<br>
+ 		<input type="radio" name="tempFormat" value="Celsius" checked>Celsius<br>
+ 		</c:if>
+ 		
+ 		<input type="hidden" name = "parkCode" value="${park.code}"/>
+ 		
+ 		<input type ="submit" value ="View this park's five-day forecast" id="weather-button"/>
  		
  		
  
