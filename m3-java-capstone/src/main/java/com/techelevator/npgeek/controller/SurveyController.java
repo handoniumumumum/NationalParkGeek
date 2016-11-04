@@ -1,5 +1,7 @@
 package com.techelevator.npgeek.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.techelevator.npgeek.model.ParkDAO;
 import com.techelevator.npgeek.model.Survey;
 import com.techelevator.npgeek.model.SurveyDAO;
-import com.techelevator.npgeek.model.SurveyResults;
+import com.techelevator.npgeek.model.SurveyResult;
 
 @Controller
 public class SurveyController {
@@ -47,8 +49,7 @@ public class SurveyController {
 	@RequestMapping("/surveyResults")
 	public String showSurveyResult(ModelMap map)
 	{
-		SurveyResults surveyResults = surveyDao.getSurveyResults();
-		surveyResults.setParkList(parkDao.getAllParks());
+		List<SurveyResult> surveyResults = surveyDao.getSurveyResults();
 		map.addAttribute("surveyResults", surveyResults);
 		return "surveyResults";
 	}

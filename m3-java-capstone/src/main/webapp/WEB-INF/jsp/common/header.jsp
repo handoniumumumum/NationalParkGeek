@@ -12,5 +12,5 @@
 
 <body>
 
-
-<img id="header-image" src="img/logo.png"/>
+<c:url value="/" var="homeHref"/>
+<a href ="${homeHref}"><img id="header-image" src="img/logo.png"/></a>

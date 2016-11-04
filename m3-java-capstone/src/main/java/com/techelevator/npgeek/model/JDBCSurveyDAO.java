@@ -1,5 +1,8 @@
 package com.techelevator.npgeek.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,19 +43,27 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	}
 
 	@Override
-	public SurveyResults getSurveyResults() {
+	public List<SurveyResult> getSurveyResults() {
 		
-		SurveyResults surveyResults = new SurveyResults();
+		List<SurveyResult> surveyResults = new ArrayList<>();
 		
-		String sqlGetSurveyResults = "SELECT parkcode, COUNT(emailaddress) AS votes FROM survey_result "
-				+ "GROUP BY parkcode ORDER BY votes DESC;";
+		String sqlGetSurveyResults = "SELECT survey_result.parkcode, parkname, COUNT(emailaddress) AS votes FROM survey_result "
+				+ "JOIN park ON park.parkcode = survey_result.parkcode "
+				+ "GROUP BY survey_result.parkcode, park.parkname ORDER BY votes DESC;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetSurveyResults);
 		
 		while(results.next())
 		{
-			String parkCode = results.getString("parkcode");
+			Park selectedPark = new Park();
+			selectedPark.setName(results.getString("parkname"));
+			selectedPark.setCode(results.getString("parkcode"));
 			int votes = results.getInt("votes");
-			surveyResults.addParkAndVote(parkCode, votes);
+			
+			SurveyResult surveyResult = new SurveyResult();
+			surveyResult.setPark(selectedPark);
+			surveyResult.setVotes(votes);
+			
+			surveyResults.add(surveyResult);
 		}
 		return surveyResults;
 	}

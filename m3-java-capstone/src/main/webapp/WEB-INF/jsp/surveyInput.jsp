@@ -1,16 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<h1>National Park Survey</h1>
+<h1>National Park Survey: Vote for your favorite park!</h1>
 
 <c:url value="/surveyInput" var ="formAction"/>
 	<form method="POST" action ="${formAction}">
 		<div>
-			<label for = "park">Choose a park</label>
+			<label for = "park">Choose your favorite park</label>
 			<select name="parkCode" id = "parkCode">
 				<c:forEach var="park" items="${parks}">
-					<option value="${park.code}">${park.name}</option>
+					<option value="${fn:toUpperCase(park.code)}">${park.name}</option>
 				</c:forEach>
 				</select>
 			

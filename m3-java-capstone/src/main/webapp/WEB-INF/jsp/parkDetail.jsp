@@ -2,7 +2,11 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<p id=inspirational-quote>${park.inspirationalQuote} - ${park.inspirationalQuoteSource}</p>
+
+
+<p id=inspirational-quote>
+	<c:out value="${park.inspirationalQuote}" ></c:out> - ${park.inspirationalQuoteSource}
+</p>
 
 <h1>${park.name}</h1>
 

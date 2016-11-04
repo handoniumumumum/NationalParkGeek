@@ -4,6 +4,10 @@
 
 <h1>Parks</h1>
 
+<c:url value="/surveyInput" var="surveyInputHref"/>
+<h2>
+	<a href="${surveyInputHref}" > Vote for your favorite park in our daily poll!</a></h2>
+
 <c:forEach var="park" items="${parks}">
 
 	<c:url var="parkDetailHref" value="/parkDetail">
