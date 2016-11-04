@@ -2,12 +2,14 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+<BODY id = "home-background" background="img/parks/rmnp.jpg">
+<section id = "home-section">
 <h1>Parks</h1>
 
 <c:url value="/surveyInput" var="surveyInputHref"/>
-<h2>
+<h2 id = "survey-link">
 	<a href="${surveyInputHref}" > Vote for your favorite park in our daily poll!</a></h2>
-
+<br>
 <c:forEach var="park" items="${parks}">
 
 	<c:url var="parkDetailHref" value="/parkDetail">
@@ -38,5 +40,5 @@
 	</div>
 	
 </c:forEach>
-
+</section>
 </body>

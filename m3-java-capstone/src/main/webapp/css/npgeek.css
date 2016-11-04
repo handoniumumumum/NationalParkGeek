@@ -1,6 +1,40 @@
+#home-background { 
+	background-image:url(rmnp.jpg);
+	background-size:cover;
+}
+
+#home-section {
+	width:95%;
+	background-color:white;
+	border-radius:10px;
+	margin:auto;
+	opacity:0.85;
+}
+
 h1{
 	text-align: center;
+	font-size:40px;
+	}
+
+#survey-link {
+	margin-bottom:20px;
+	margin-left:20px;
+	border: 1px solid black;
+	background-color:#d9d9d9;
+	display:inline-block;
+	border-radius:5px;
+	height:30px;
+	padding:5px 5px 5px 5px;
+	
 }
+
+#survey-link a {
+	text-decoration:none;
+	text-align: center;
+	vertical-align: middle;
+	
+}	
+
 
 #header-image{
 	width:60%;
@@ -8,6 +42,10 @@ h1{
 
 #park-list-item{
 	display: block;
+	border-bottom: 1px solid gray;
+	padding: 10px;
+	width:95%;
+	margin:auto;
 }
 
 #park-list-item img{
