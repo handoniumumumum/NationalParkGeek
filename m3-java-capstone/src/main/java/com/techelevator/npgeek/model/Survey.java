@@ -1,7 +1,7 @@
 package com.techelevator.npgeek.model;
 
 public class Survey {
-
+	private int id = 0;
 	private String parkCode;
 	private String email;
 	private String state;
@@ -31,5 +31,12 @@ public class Survey {
 		this.physicalActivityLevel = physicalActivityLevel;
 	}
 	
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	public int getId() {
+		return id;
+	}
 	
 }

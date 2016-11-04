@@ -30,6 +30,14 @@ public class JDBCSurveyDAO implements SurveyDAO {
 				submittedSurvey.getEmail(), submittedSurvey.getState(), submittedSurvey.getPhysicalActivityLevel());
 	}
 	
+	public void submit(Survey submittedSurvey, int id)
+	{
+		String sqlSubmitSurvey = "INSERT INTO survey_result (surveyid, parkcode, "
+				+ "emailaddress, state, activitylevel) VALUES (?, ?, ?, ?, ?);";
+		jdbcTemplate.update(sqlSubmitSurvey, id, submittedSurvey.getParkCode(),
+				submittedSurvey.getEmail(), submittedSurvey.getState(), submittedSurvey.getPhysicalActivityLevel());
+	}
+	
 	private int getNextId() {
 		String sqlSelectNextId = "SELECT NEXTVAL('seq_surveyId')";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectNextId);
@@ -66,6 +74,24 @@ public class JDBCSurveyDAO implements SurveyDAO {
 			surveyResults.add(surveyResult);
 		}
 		return surveyResults;
+	}
+	
+	public Survey getSurveyResultById(int id)
+	{
+		Survey selectedSurvey = new Survey();
+		
+		String sqlGetSurveyResults = "SELECT * FROM survey_result WHERE surveyid = ?;";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetSurveyResults, id);
+		
+		if(results.next())
+		{
+			selectedSurvey.setId(id);
+			selectedSurvey.setEmail(results.getString("email"));
+			selectedSurvey.setParkCode(results.getString("parkcode"));
+			selectedSurvey.setPhysicalActivityLevel("activitylevel");
+			selectedSurvey.setState(results.getString("state"));
+		}
+		return selectedSurvey;
 	}
 
 }
