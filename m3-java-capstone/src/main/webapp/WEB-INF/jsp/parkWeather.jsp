@@ -2,9 +2,12 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<h1>Today's Forecast for ${park.name}</h1>
+
+<BODY id = "home-background" background="img/parks/${park.code}.jpg">
+
 
 <section id="forecast-today">
+<h2>Today's Forecast for ${park.name}</h2>
 
 	<div id="forecast-image">
 		<img src="img/weather/${forecast[0].forecastImageLocation}.png"/>
@@ -27,11 +30,12 @@
 
 <section id="forecast-five">
 
-<h1>Five-day Forecast for ${park.name}</h1>
+<h2>Five-day Forecast for ${park.name}</h2>
 
 <table>
 
 	<tr>
+	
 
 <c:forEach var="weather" items="${forecast}">
 		<td>

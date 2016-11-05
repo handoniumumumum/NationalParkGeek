@@ -2,12 +2,14 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+<BODY id = "deatil-page-background" background="img/parks/${park.code}.jpg">
 
 
 <p id=inspirational-quote>
 	<c:out value="${park.inspirationalQuote}" ></c:out> - ${park.inspirationalQuoteSource}
 </p>
-
+<br>
+<section id = "section-park-detail">
 <h1>${park.name}</h1>
 
 <div id="park-detail-image">
@@ -19,6 +21,8 @@
 		<p><b>Established</b>: ${park.yearFounded}</p>
 		<p id="park-description">${park.parkDescription}</p>
 		
+		
+		<div id="fast-facts-main">
 		<h3 id="fast-facts-header">Fast Facts</h3>
 		<div class="fast-facts">
 		
@@ -40,6 +44,7 @@
 		</c:url>
 <%-- 		<p><a href="${parkWeatherHref}">View five-day forecast</a></p>
  --%>	
+ 		<div id="park-weather-div">
  		<c:url value="/parkWeather" var ="formAction"/>
 		<form method="GET" action="${formAction}">
  		<c:if test="${tempFormat == 'Fahrenheit'}">
@@ -59,7 +64,10 @@
  		
  
  
- </form> 	
+ </form>
+ </div> 	
+</section>
+</BODY>
 		
 		
 		
