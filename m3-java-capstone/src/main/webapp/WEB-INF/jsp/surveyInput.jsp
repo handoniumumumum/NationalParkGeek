@@ -3,6 +3,9 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+<BODY id = "home-background" background="img/parks/ynp2.jpg">
+
+<section id="survey-input-section">
 <h1>National Park Survey: Vote for your favorite park!</h1>
 
 <c:url value="/surveyInput" var ="formAction"/>
@@ -14,13 +17,13 @@
 					<option value="${fn:toUpperCase(park.code)}">${park.name}</option>
 				</c:forEach>
 				</select>
-			
+			<br><br>
 			<label for="state">Enter your state of residence</label>
 			<input type="text" name="state" id = "state"/>
-			
+			<br><br>
 			<label for= "email">Enter your email address</label>
 			<input type="text" name="email" id = "email"/>
-			
+			<br><br>
 			<label for = "physicalActivityLevel">What is your average activity level</label>
 				<select name = "physicalActivityLevel" id = "physicalActivityLevel">
 					<option value="inactive">Inactive</option>
@@ -32,3 +35,4 @@
 				<input type ="submit" value = "Submit Survey" id = "submitSurvey"/>
 		</div>
 	</form>
+	</section>
