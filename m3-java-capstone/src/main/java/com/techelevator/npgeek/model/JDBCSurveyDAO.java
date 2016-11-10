@@ -86,9 +86,9 @@ public class JDBCSurveyDAO implements SurveyDAO {
 		if(results.next())
 		{
 			selectedSurvey.setId(id);
-			selectedSurvey.setEmail(results.getString("email"));
+			selectedSurvey.setEmail(results.getString("emailaddress"));
 			selectedSurvey.setParkCode(results.getString("parkcode"));
-			selectedSurvey.setPhysicalActivityLevel("activitylevel");
+			selectedSurvey.setPhysicalActivityLevel(results.getString("activitylevel"));
 			selectedSurvey.setState(results.getString("state"));
 		}
 		return selectedSurvey;

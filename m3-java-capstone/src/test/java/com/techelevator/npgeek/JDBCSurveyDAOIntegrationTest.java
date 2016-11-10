@@ -28,7 +28,7 @@ public class JDBCSurveyDAOIntegrationTest extends DAOIntegrationTest{
 		testSurvey.setParkCode("MRNP");
 		testSurvey.setPhysicalActivityLevel("inactive");
 		testSurvey.setState("test");
-		
+		testSurvey.setId(TEST_ID);
 		dao.submit(testSurvey,TEST_ID);
 		
 		Survey actualSurvey = dao.getSurveyResultById(TEST_ID);
